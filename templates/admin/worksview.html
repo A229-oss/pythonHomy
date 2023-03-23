@@ -1,0 +1,48 @@
+{% extends "corona/corona.html" %}
+{% block content %}
+{% for i in data %}
+
+
+
+<div class="card" style="width: 40rem;">
+  <div class="card-body">
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="text-center" scope="col"><h3><b>WORKS</b></h3><hr class="border border-danger border-2 opacity-50"></th>
+
+    </tr>
+  </thead>z
+
+  <tbody>
+  {% for i in data %}
+    <tr>
+
+      <td>{{i.works}}</td>
+
+
+   <td>
+         <form action="{% url 'delete' i.id %}" method="POST" >
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+   </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+  </div>
+</div>
+
+
+
+<!--    {% endfor %}-->
+
+{% endblock %}
+

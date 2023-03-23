@@ -1,0 +1,81 @@
+{% extends "corona/corona.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+
+
+<div class="card" style="width: 100rem;">
+  <div class="card-body">
+      <table class="table">
+  <thead>
+   <th class="rounded mx-auto d-block" scope="col"><h3 ><b>messages</b></h3><hr class="border border-danger border-2 opacity-50"></th>
+    <tr >
+      <th scope="col" ><h5>USER</h5></th>
+      <th scope="col"><h5>FEEDBACK</h5></th>
+      <th scope="col"><h5>REPLAY</h5></th>
+<!--      <th scope="col"><h5>PHONE</h5></th>-->
+<!--        <th scope="col"><h5>EMAIL</h5></th>-->
+<!--        <th scope="col"><h5>WORK</h5></th>-->
+<!--        <th scope="col"><h5>PROFILE</h5></th>-->
+<!--        <th scope="col"><h5>UPDATE</h5></th>-->
+<!--        <th scope="col"><h5>DELETE</h5></th>-->
+
+
+    </tr>
+  {% for i in data %}
+  </thead>
+
+
+  <tbody>
+
+    <tr>
+        <td>{{i.user}}</td>
+        <td>{{i.message}}</td>
+        <td>{{i.replay}}</td>
+<!--        <td>{{i.phone}}</td>-->
+<!--        <td>{{i.email}}</td>-->
+<!--        <td>{{i.work}}</td>-->
+<!--        <td><img  src= "{{ i.profile.url }} "class="rounded float-start"  style="width: 10rem; height: 10rem;" /></td>-->
+<!--        <td><form action="{% url 'delete' i.id %}" method="POST" >-->
+<!--            {% csrf_token %}-->
+<!--            <button type="submit" class="btn btn-danger">Delete</button>-->
+<!--            </form></td>-->
+<!--        <td>-->
+
+
+<!--         <form action="{% url 'update' i.id %}" method="POST" >-->
+<!--                     {% csrf_token %}-->
+<!--                       {{ form|crispy}}-->
+
+<!--                      <button type="submit" class="btn btn-primary">update</button>-->
+<!--                       </form>-->
+
+<!--                    </form>-->
+<!--         <div class="email_text">-->
+<!--            <div class="form-group">-->
+<!--               <input type="text" class="email-bt" placeholder="Name" name="Email">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--               <input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--               <input type="text" class="email-bt" placeholder="Email" name="Email">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--               <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>-->
+<!--            </div>-->
+<!--            <div class="send_btn"><a href="#">SEND</a></div>-->
+<!--         </div>-->
+     </td>
+
+
+
+
+    </tr>
+
+  </tbody>
+          {% endfor %}
+</table>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "workertemp/workerbase.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">WORKERS</th>
+       <th scope="col">WORK</th>
+      <th scope="col">TIME</th>
+      <th scope="col">START TIME</th>
+        <th scope="col">END TIME</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data2 %}
+    <tr>
+
+      <td>{{i.workers}}</td>
+      <td>{{i.Work}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.start_time}}</td>
+       <td>{{i.end_time}}</td>
+    </tr>
+   {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

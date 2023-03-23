@@ -1,0 +1,41 @@
+{% extends "costumer/customerlanding.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+
+
+
+<div class="card" style="width: 80rem;">
+  <div class="card-body">
+<table class="table">
+  <thead>
+    <tr>
+      <th class="text-center" scope="col"><h3><b>Notification</b></h3><hr class="border border-danger border-2 opacity-50"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <tr>
+    <td><h5>date</h5></td>
+    <td><h5>notification</h5></td>
+  </tr>
+  {% for i in data %}
+    <tr>
+      <td>{{i.date}}</td>
+
+      <td>{{i.notification}}</td>
+
+
+    </tr>
+
+  </tbody>
+       {% endfor %}
+</table>
+    </div>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,57 @@
+{% extends "costumer/customerlanding.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+
+<div class="card" style="width: 100rem;">
+  <div class="card-body">
+      <th class="text-center" scope="col"><h3><b>Addcreditcard</b></h3><hr class="border border-danger border-2 opacity-50"></th>
+<table class="table">
+
+  <thead>
+    <tr>
+
+        <th scope="col">CardNo</th>
+      <th scope="col">Card CVV</th>
+         <th scope="col">ExpiryDate</th>
+
+
+
+<!--      <th scope="col">BOOKING</th>-->
+
+    </tr>
+
+  </thead>
+  <tbody>
+  {%for i in data%}
+    <tr>
+
+       <td>{{i.card_no}}</td>
+      <td>{{i.card_cvv }}</td>
+      <td>{{i.expiry_date}}</td>
+
+      <td>
+
+
+      </td>
+
+
+        <td>
+
+        </td>
+        <td>
+
+
+
+
+
+    </tr>
+
+   {% endfor %}
+
+  </tbody>
+</table>
+      </div>
+</div>
+
+{% endblock %}

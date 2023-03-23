@@ -1,0 +1,57 @@
+{% extends "corona/corona.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+
+
+<div class="card" style="width: 80rem;">
+  <div class="card-body">
+      <table class="table">
+  <thead>
+   <th class="rounded mx-auto d-block" scope="col"><h3 ><b>feedbacks</b></h3><hr class="border border-danger border-2 opacity-50"></th>
+    <tr >
+      <th scope="col" ><h5>USER</h5></th>
+      <th scope="col"><h5>FEEDBACK</h5></th>
+      <th scope="col"><h5>REPLAY</h5></th>
+<!--      <th scope="col"><h5>PHONE</h5></th>-->
+<!--        <th scope="col"><h5>EMAIL</h5></th>-->
+<!--        <th scope="col"><h5>WORK</h5></th>-->
+<!--        <th scope="col"><h5>PROFILE</h5></th>-->
+<!--        <th scope="col"><h5>UPDATE</h5></th>-->
+<!--        <th scope="col"><h5>DELETE</h5></th>-->
+
+
+    </tr>
+  {% for i in data %}
+  </thead>
+
+
+  <tbody>
+
+    <tr>
+        <td>{{i.customer}}</td>
+        <td>{{i.message}}</td>
+        <td>
+            {% if i.replay == None %}
+            <a href="{% url 'ReplayFeedback' i.id %}"  class="btn btn-primary">
+            replay
+            </a>
+            {% else %}
+            {{i.replay}}
+            {% endif %}
+        </td>
+        {% empty %}
+
+     </td>
+
+
+
+
+    </tr>
+
+  </tbody>
+          {% endfor %}
+</table>
+      </div>
+
+{% endblock %}

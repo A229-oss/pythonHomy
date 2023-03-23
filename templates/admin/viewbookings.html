@@ -1,0 +1,54 @@
+{% extends "corona/corona.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+
+        <th scope="col">CUSTOMERRNAME</th>
+      <th scope="col">WORKERNAME</th>
+      <th scope="col">WORK</th>
+      <th scope="col">TIME</th>
+      <th scope="col">START TIME</th>
+        <th scope="col">END TIME</th>
+       <th scope="col">STATUS</th>
+
+<!--      <th scope="col">BOOKING</th>-->
+
+    </tr>
+  </thead>
+  <tbody>
+  {%for i in data%}
+    <tr>
+
+       <td>{{i.user.Name}}</td>
+      <td>{{i.schedule.workers}}</td>
+      <td>{{i.schedule.Work}}</td>
+      <td>{{i.schedule.date}}</td>
+      <td>{{i.schedule.start_time}}</td>
+       <td>{{i.schedule.end_time}}</td>
+        <td>{{i.status}}</td>
+        <td>
+            {% if i.status == 0 %}
+            <a href="{% url 'Booking_Accept' i.id %}" class="btn btn-success">accept</a>
+            <a href="{% url 'Booking_Reject' i.id %}" class="btn btn-danger">reject</a>
+            {% elif i.status == 1 %}
+            <button class="btn btn-success">Fixed</button>
+            {% else %}
+            <button class="btn btn-danger">Rejected</button>
+            {% endif %}
+        </td>
+
+
+
+    </tr>
+
+   {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}

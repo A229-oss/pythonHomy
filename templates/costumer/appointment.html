@@ -1,0 +1,47 @@
+{% extends "costumer/customerlanding.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+<div class="card" style="width: 70rem;">
+  <div class="card-body">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">WORKERS</th>
+      <th scope="col">WORK</th>
+      <th scope="col">TIME</th>
+      <th scope="col">START TIME</th>
+        <th scope="col">END TIME</th>
+      <th scope="col">STATUS</th>
+
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {%for i in data2%}
+    <tr>
+
+      <td>{{i.workers}}</td>
+      <td>{{i.Work}}</td>
+      <td>{{i.date}}</td>
+      <td bgcolor="green" ><b>{{i.start_time}}</b></td>
+       <td bgcolor="red"><b>{{i.end_time}}</b></td>
+      <td>{{i.status}}</td>
+      <td>
+          <a href="{% url 'Booking' i.id %} "class="btn btn-dark">Book</a>
+      </td>
+
+
+    </tr>
+
+   {% endfor %}
+
+  </tbody>
+</table>
+    </div>
+</div>
+
+{% endblock %}

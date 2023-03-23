@@ -1,0 +1,63 @@
+{% extends "costumer/customerlanding.html" %}
+{% block content %}
+{%load crispy_forms_tags %}
+
+
+<div class="card" style="width: 80rem;">
+  <div class="card-body">
+    <tr>
+    <th class="text-center" scope="col"><h3><b>ClientBill</b></h3><hr class="border border-danger border-2 opacity-50"></th>
+  </tr>
+<table class="table">
+
+  <thead>
+    <tr>
+
+        <th scope="col">Name</th>
+      <th scope="col">Bill Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Paid on</th>
+      <th scope="col">Status</th>
+
+
+<!--      <th scope="col">BOOKING</th>-->
+
+    </tr>
+
+  </thead>
+  <tbody>
+  {%for i in data%}
+    <tr>
+
+
+       <td>{{i.name}}</td>
+      <td>{{i.bill_date}}</td>
+      <td>{{i.amount}}</td>
+      <td>{{i.paid_on}}</td>
+      <td>
+        {% if i.status == 0 %}
+
+        <a href="{% url 'Payin_Direct' i.id %}" class="btn btn-primary">cash payment</a>
+        <a href="{% url 'CreditCard_Add' i.id %}" class="btn btn-primary">Card payment</a>
+        {% elif i.status == 1 %}
+        <button type="button" class="btn btn-warning">Payementsuccesfully</button>
+          {% else %}
+         <button type="button" class="btn btn-success">pay in direct</button>
+        {% endif %}
+
+      </td>
+
+        <td></td>
+
+
+
+    </tr>
+
+   {% endfor %}
+
+  </tbody>
+</table>
+
+    </div>
+</div>
+ {% endblock %}
